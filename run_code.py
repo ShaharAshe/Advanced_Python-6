@@ -2,12 +2,15 @@
 import fib
 import ctypes
 import numpy as np
+import os
 
 # Using Cython module
+print("Using Cython module")
 print(fib.fib1(0, 1, 10))
-print(fib.fib2(0, 1, 10))
+print(np.asarray(fib.fib2(0, 1, 10)))
 
 # Using the C library with ctypes
+print("\nUsing the C library with ctypes")
 lib = ctypes.CDLL('./fib_c.dll')
 
 lib.fib1.argtypes = [ctypes.c_int, ctypes.c_int, ctypes.c_int]

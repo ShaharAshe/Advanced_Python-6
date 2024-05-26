@@ -1,9 +1,13 @@
-// fib.c
-
 #include <stdio.h>
 #include <stdlib.h>
 
-int fib1(int a0, int a1, int n) {
+#ifdef _WIN32
+#define EXPORT __declspec(dllexport)
+#else
+#define EXPORT
+#endif
+
+EXPORT int fib1(int a0, int a1, int n) {
     int i, a_n = 0;
     if (n == 0) {
         return a0;
@@ -21,7 +25,7 @@ int fib1(int a0, int a1, int n) {
     }
 }
 
-int* fib2(int a0, int a1, int count, int* arr) {
+EXPORT int* fib2(int a0, int a1, int count, int* arr) {
     if (arr == NULL) {
         arr = (int*) malloc(count * sizeof(int));
     }
