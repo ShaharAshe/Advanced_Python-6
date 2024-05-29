@@ -1,4 +1,4 @@
-# imports
+# Usage of the Cython module
 import fib
 import ctypes
 import numpy as np
